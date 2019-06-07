@@ -43,6 +43,11 @@ public class ContactoServiceImpl implements ContactoService {
     setLocalidad(contacto);
     return contactoRepository.save(contacto);
   }
+  
+  @Override
+  public Contacto guardar(Contacto contacto) {
+    return null;
+  }
 
   private void setLocalidad(Contacto contacto){
     if (contacto.getLocalidad() != null && contacto.getLocalidad().getId() != null) {

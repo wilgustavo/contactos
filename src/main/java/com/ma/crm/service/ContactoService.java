@@ -12,4 +12,5 @@ public interface ContactoService {
   Lista<ContactoItem> listar(String busqueda, int pagina, int limite);
   Contacto consultar(long id);
   Contacto crear(Contacto contacto);
+  Contacto guardar(Contacto contacto);
 }

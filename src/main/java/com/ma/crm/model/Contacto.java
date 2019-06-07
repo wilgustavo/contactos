@@ -50,6 +50,15 @@ public class Contacto {
   @JoinColumn(name = "localidad")
   private Localidad localidad;
 
+  public void actualizar(Contacto contacto) {
+    nombre = contacto.nombre;
+    nacimiento = contacto.nacimiento;
+    email = contacto.email;
+    telefono = contacto.telefono;
+    direccion = contacto.direccion;
+    localidad = contacto.localidad;
+  }
+ 
   public static class Builder {
     private Long id;
     private String nombre;
