@@ -7,6 +7,7 @@ import com.ma.crm.repository.LocalidadRepository;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * LocalidadServiceImpl
@@ -38,11 +39,11 @@ public class LocalidadServiceImpl implements LocalidadService {
   }
 
   @Override
+  @Transactional
   public Localidad guardar(Localidad localidad) {
-    if (!localidadRepository.existsById(localidad.getId())) {
-      throw new NotFoundException(String.format(MSG_NOT_FOUND, localidad.getId()));
-    }
-    return localidadRepository.save(localidad);
+    Localidad original = consultar(localidad.getId());
+    original.actualizar(localidad);
+    return original;
   }
 
   @Override

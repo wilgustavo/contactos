@@ -107,8 +107,7 @@ public class LocalidadServiceTest {
   @Test
   public void deberia_grabar_una_localidad() {
     Localidad localidad = new Localidad(8L, "Rawson", "1111", "CHUBUT");
-    when(localidadRepository.existsById(8L)).thenReturn(true);
-    when(localidadRepository.save(localidad)).thenReturn(localidad);
+    when(localidadRepository.findById(8L)).thenReturn(Optional.of(localidad));
     Localidad resultado = localidadService.guardar(localidad);
     assertThat(resultado, is(notNullValue()));
   }

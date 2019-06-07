@@ -69,5 +69,13 @@ public class LocalidadTest {
     assertThat(error.getPropertyPath().toString(), containsString("codigoPostal"));
     assertThat(error.getMessage(), containsString("codigo postal excede 8 caracteres"));
   }
+
+  @Test
+  public void deberia_actualizar_localidad() {
+    Localidad original = new Localidad(10L, "Cordoba", "5000", "CBA");
+    Localidad cambio = new Localidad(10L, "Cba capital", "5001", "Cordoba");
+    original.actualizar(cambio);
+    assertThat(original, is(cambio));
+  }
   
 }

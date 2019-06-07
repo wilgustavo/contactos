@@ -30,5 +30,11 @@ public class Localidad {
   @Size(max = 8, message = "codigo postal excede {max} caracteres")
   private String codigoPostal;
   private String provincia;
+
+  public void actualizar(Localidad localidad) {
+    nombre = localidad.nombre;
+    codigoPostal = localidad.codigoPostal;
+    provincia = localidad.provincia;
+  }
   
 }
